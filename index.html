@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Profile Card (Vanilla JS)</title>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+
+    <body>
+        <article class="profile-card" data-testid="test-profile-card">
+            <header aria-label="profile" class="profile-header">
+                <h2 data-testid="test-user-name">Elroi Samuel-Adama</h2>
+                <div class="time">
+                    <small>Current time (ms): <span id="user-time" data-testid="test-user-time">0</span></small>
+                </div>
+            </header>
+
+            <div class="profile-body">
+                <figure class="avatar-figure">
+                    <img id="user-avatar" data-testid="test-user-avatar"
+                        src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg" alt="User avatar" />
+                </figure>
+
+                <section class="content-area">
+                    <section class="bio">
+                        <p data-testid="test-user-bio" id="user-bio">
+                            Frontend developer, coffee enthusiast, and weekend hiker. I build accessible UI
+                            and love untangling layout bugs.
+                        </p>
+                    </section>
+
+                    <nav aria-label="Social links" data-testid="test-user-social-links" class="social-nav">
+                        <ul>
+                            <li><a id="social-twitter" class="social-link" data-testid="test-user-social-twitter"
+                                    href="https://twitter.com/SugarcaneRoy1" target="_blank" rel="noopener noreferrer">Twitter</a>
+                            </li>
+                            <li><a id="social-github" class="social-link" data-testid="test-user-social-github"
+                                    href="https://github.com/billyRoyR" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                            <li><a id="social-linkedin" class="social-link" data-testid="test-user-social-linkedin"
+                                    href="https://www.linkedin.com/in/elroi-samuel-adama-4a891632a" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="flex-box">
+                        <section>
+                            <h4 id="hobbies-heading">Hobbies</h4>
+                            <ul data-testid="test-user-hobbies" id="user-hobbies">
+                                <li>Hiking</li>
+                                <li>Photography</li>
+                                <li>Reading</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h4 id="dislikes-heading">Dislikes</h4>
+                            <ul data-testid="test-user-dislikes" id="user-dislikes">
+                                <li>Unlabeled buttons</li>
+                                <li>Inaccessible color contrast</li>
+                            </ul>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </article>
+
+        <script type="module" src="/script/index.js"></script>
+    </body>
+
+</html>
