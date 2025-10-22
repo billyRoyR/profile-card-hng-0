@@ -28,7 +28,7 @@ form.addEventListener('submit', (e) => {
 
   
   document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-  successMessage.textContent = '';
+  successMsg.textContent = '';
 
   if (!/^[a-zA-Z\s]{2,50}$/.test(name.value.trim())) {
   document.getElementById('error-name').textContent = 'Please enter a valid full name';
@@ -61,7 +61,7 @@ form.addEventListener('submit', (e) => {
   }
 
   if (isValid) {
-    successMessage.textContent = 'Your message has been sent successfully!';
+    successMsg.textContent = 'Your message has been sent successfully!';
     form.reset();
   }
 });
