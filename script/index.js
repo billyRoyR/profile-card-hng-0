@@ -1,67 +1,59 @@
-const elTime = document.querySelector('#user-time');
-
-function renderTime() {
-    const now = Date.now();
-    if (elTime) elTime.textContent = String(now);
+function updateTime() {
+    const timeElement = document.getElementById("user-time-ms");
+    timeElement.textContent = Date.now();
 }
-renderTime();
-const timeInterval = setInterval(renderTime, 1000);
-
-
-window.addEventListener('unload', () => {
-    clearInterval(timeInterval);
-});
+updateTime();
+setInterval(updateTime, 1000);
 
 // contact page (implementation)
-
 const form = document.querySelector('.contact-form');
-const successMsg = document.querySelector('[data-testid="test-contact-success"]');
+const successMessage = document.querySelector('[data-testid="test-contact-success"]');
 
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  
-  let isValid = true;
-  const name = form.name;
-  const email = form.email;
-  const subject = form.subject;
-  const message = form.message;
+    e.preventDefault();
 
-  
-  document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
-  successMsg.textContent = '';
-
-  if (!/^[a-zA-Z\s]{2,50}$/.test(name.value.trim())) {
-  document.getElementById('error-name').textContent = 'Please enter a valid full name';
-  isValid = false;
-}
+    let isValid = true;
+    const name = form.name;
+    const email = form.email;
+    const subject = form.subject;
+    const message = form.message;
 
 
+    document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+    successMessage.textContent = '';
 
-  if (!email.value.trim()) {
-    document.getElementById('error-email').textContent = 'Email is required';
-    isValid = false;
-  } else if (!/\S+@\S+\.\S+/.test(email.value)) {
-    document.getElementById('error-email').textContent = 'Email is invalid';
-    isValid = false;
-  }
-
-
-  if (!subject.value.trim()) {
-    document.getElementById('error-subject').textContent = 'Subject is required';
-    isValid = false;
-  }
+    if (!/^[a-zA-Z\s]{2,50}$/.test(name.value.trim())) {
+        document.getElementById('error-name').textContent = 'Please enter a valid full name';
+        isValid = false;
+    }
 
 
-  if (!message.value.trim()) {
-    document.getElementById('error-message').textContent = 'Message is required';
-    isValid = false;
-  } else if (message.value.trim().length < 10) {
-    document.getElementById('error-message').textContent = 'Message must be at least 10 characters';
-    isValid = false;
-  }
 
-  if (isValid) {
-    successMsg.textContent = 'Your message has been sent successfully!';
-    form.reset();
-  }
+    if (!email.value.trim()) {
+        document.getElementById('error-email').textContent = 'Email is required';
+        isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(email.value)) {
+        document.getElementById('error-email').textContent = 'Email is invalid';
+        isValid = false;
+    }
+
+
+    if (!subject.value.trim()) {
+        document.getElementById('error-subject').textContent = 'Subject is required';
+        isValid = false;
+    }
+
+
+    if (!message.value.trim()) {
+        document.getElementById('error-message').textContent = 'Message is required';
+        isValid = false;
+    } else if (message.value.trim().length < 10) {
+        document.getElementById('error-message').textContent = 'Message must be at least 10 characters';
+        isValid = false;
+    }
+
+    if (isValid) {
+        successMessage.textContent = 'Your message has been sent successfully!';
+        form.reset();
+    }
 });
