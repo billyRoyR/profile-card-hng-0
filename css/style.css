@@ -9,6 +9,7 @@ body {
     justify-content: center;
     padding: 24px;
     color: #0f172a;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 main {
@@ -17,10 +18,11 @@ main {
 }
 
 .profile-card {
-    background: #fff;
+    background: linear-gradient(180deg, #fec, #fcfcff);
     border-radius: 12px;
     padding: 16px;
     box-shadow: 0 10px 30px rgba(2, 6, 23, 0.08);
+
 }
 
 .profile-header {
@@ -184,4 +186,149 @@ section h4 {
     .avatar-controls input[type="url"] {
         width: 220px
     }
+}
+
+.page-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav-link {
+    background-color: #4caf50;
+    color: #f3f6f8;
+    font-size: 1.2rem;
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 30px;
+    margin: 9px 0 2px;
+    border-radius: 9px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #45a049;
+}
+
+.navbar {
+  width: 100%;
+  background-color: #4caf50;
+  padding: 15px 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, border-bottom 0.3s;
+}
+
+.navbar a:hover {
+  color: lightblue;
+  border-bottom: 2px solid white;
+}
+
+@media (max-width: 600px) {
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.success {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+section {
+  margin-top: 20px;
+}
+
+ /* 🌍 RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  article {
+    padding: 15px;
+  }
+
+  .navbar ul {
+    gap: 15px;
+  }
+
+  .info_details img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .listItems {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  h1, h2 {
+    font-size: 1.2rem;
+  }
+
+  p, li {
+    font-size: 0.95rem;
+  }
 }

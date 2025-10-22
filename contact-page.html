@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact Us</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="/script/index.js" defer></script>
+    </head>
+
+    <body>
+        <article>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="index.html">Profile</a></li>
+                    <li><a href="about-page.html">About Me</a></li>
+                    <li><a href="contact-page.html" class="active">Contact</a></li>
+                </ul>
+            </nav>
+
+            <header class="info_details">
+                <h1>Contact Me</h1>
+            </header>
+
+            <form id="contactForm">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" required />
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" required />
+
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" required />
+
+                <label for="message">Message:</label>
+                <textarea id="message" required></textarea>
+
+                <button type="submit">Submit</button>
+                <p id="successMessage" class="success" aria-live="polite"></p>
+            </form>
+        </article>
+    </body>
+
+</html>
