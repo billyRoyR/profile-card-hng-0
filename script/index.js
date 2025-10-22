@@ -14,41 +14,54 @@ window.addEventListener('unload', () => {
 
 // contact page (implementation)
 
-const form = document.getElementById('contactForm');
-const successMsg = document.getElementById('success');
+const form = document.querySelector('.contact-form');
+const successMsg = document.querySelector('[data-testid="test-contact-success"]');
 
 form.addEventListener('submit', (e) => {
-    e.preventDefault();
+  e.preventDefault();
+  
+  let isValid = true;
+  const name = form.name;
+  const email = form.email;
+  const subject = form.subject;
+  const message = form.message;
 
-    let valid = true;
-    const name = document.getElementById('name');
-    const email = document.getElementById('email');
-    const subject = document.getElementById('subject');
-    const message = document.getElementById('message');
+  
+  document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+  successMessage.textContent = '';
 
-    // reset previous messages
-    document.querySelectorAll('.error').forEach(e => e.textContent = '');
-    successMsg.hidden = true;
+  if (!/^[a-zA-Z\s]{2,50}$/.test(name.value.trim())) {
+  document.getElementById('error-name').textContent = 'Please enter a valid full name';
+  isValid = false;
+}
 
-    if (!name.value.trim()) {
-        document.getElementById('error-name').textContent = 'Full name is required.';
-        valid = false;
-    }
 
-    if (!email.value.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/)) {
-        document.getElementById('error-email').textContent = 'Enter a valid email address.';
-        valid = false;
-    }
 
-    if (!subject.value.trim()) {
-        document.getElementById('error-subject').textContent = 'Subject is required.';
-        valid = false;
-    }
+  if (!email.value.trim()) {
+    document.getElementById('error-email').textContent = 'Email is required';
+    isValid = false;
+  } else if (!/\S+@\S+\.\S+/.test(email.value)) {
+    document.getElementById('error-email').textContent = 'Email is invalid';
+    isValid = false;
+  }
 
-    if (message.value.trim().length < 10) {
-        document.getElementById('error-message').textContent = 'Message must be at least 10 characters.';
-        valid = false;
-    }
 
-    if (valid) successMsg.hidden = false;
+  if (!subject.value.trim()) {
+    document.getElementById('error-subject').textContent = 'Subject is required';
+    isValid = false;
+  }
+
+
+  if (!message.value.trim()) {
+    document.getElementById('error-message').textContent = 'Message is required';
+    isValid = false;
+  } else if (message.value.trim().length < 10) {
+    document.getElementById('error-message').textContent = 'Message must be at least 10 characters';
+    isValid = false;
+  }
+
+  if (isValid) {
+    successMessage.textContent = 'Your message has been sent successfully!';
+    form.reset();
+  }
 });
